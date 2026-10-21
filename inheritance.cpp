@@ -1,14 +1,15 @@
 #include <iostream>
 using namespace std;
+
 // Base class
-class Shape
-{
+class Shape {
 public:
-    virtual void area()
-    {
+    virtual void area() {
+
         cout << "Area of shape" << endl;
     }
 };
+
 // Derived class
 class Circle : public Shape
 {
@@ -20,7 +21,9 @@ public:
         cout << "Enter radius: ";
         cin >> radius;
 
-        cout << "Area of circle = " << 3.142 * radius * radius << endl;
+        cout << "Area of circle = "
+             << 3.142 * radius * radius
+             << endl;
     }
 };
 // Derived class
@@ -38,7 +41,9 @@ public:
         cout << "Enter width: ";
         cin >> width;
 
-        cout << "Area of rectangle = " << length * width << endl;
+        cout << "Area of rectangle = "
+             << length * width
+             << endl;
     }
 };
 
@@ -48,11 +53,14 @@ int main()
 
     Circle c;
     Rectangle r;
+
     ptr = &c;
     ptr->area();
 
     cout << endl;
+
     ptr = &r;
     ptr->area();
+
     return 0;
 }

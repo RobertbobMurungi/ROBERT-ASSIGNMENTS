@@ -11,23 +11,23 @@ protected:
     double salary;
 
 public:
-    void getEmployee() 
+    void getEmployee()
     {
-        cout << "Enter employee name: "; 
-        cin >> name; 
+        cout << "Enter employee name: ";
+        cin >> name;
 
-        cout << "Enter employee ID: "; 
-        cin >> id; 
+        cout << "Enter employee ID: ";
+        cin >> id;
 
-        cout << "Enter basic salary: "; 
-        cin >> salary; 
+        cout << "Enter basic salary: ";
+        cin >> salary;
     }
 
-    void showEmployee() 
+    void showEmployee()
     {
-        cout << "Name: " << name << endl;  
-        cout << "Employee ID: " << id << endl; 
-        cout << "Basic Salary: " << salary << endl;  
+        cout << "Name: " << name << endl;
+        cout << "Employee ID: " << id << endl;
+        cout << "Basic Salary: " << salary << endl;
     }
 };
 
@@ -42,35 +42,35 @@ public:
     {
         getEmployee();
 
-        cout << "Enter manager allowance: "; 
-        cin >> allowance; 
+        cout << "Enter manager allowance: ";
+        cin >> allowance;
     }
 
-    void displayManager() 
+    void displayManager()
     {
-        cout << "\nMANAGER DETAILS" << endl; 
+        cout << "\nMANAGER DETAILS" << endl;
 
-        showEmployee(); 
+        showEmployee();
 
-        cout << "Allowance: " << allowance << endl; 
+        cout << "Allowance: " << allowance << endl;
         cout << "Gross Salary: "
-             << salary + allowance << endl; 
+             << salary + allowance << endl;
     }
 };
 
 // Another derived class
-class Technician : public Employee 
+class Technician : public Employee
 {
 private:
-    int overtimeHours; 
-    double overtimeRate; 
+    int overtimeHours;
+    double overtimeRate;
 
 public:
-    void getTechnician() 
+    void getTechnician()
     {
         getEmployee();
 
-        cout << "Enter overtime hours: "; 
+        cout << "Enter overtime hours: ";
         cin >> overtimeHours;
 
         cout << "Enter overtime rate: ";
@@ -79,11 +79,11 @@ public:
 
     void displayTechnician()
     {
-        cout << "\nTECHNICIAN DETAILS" << endl; 
+        cout << "\nTECHNICIAN DETAILS" << endl;
 
         showEmployee();
 
-        double overtimePay; 
+        double overtimePay;
 
         overtimePay = overtimeHours * overtimeRate;
 
@@ -97,17 +97,17 @@ public:
 
 int main()
 {
-    Manager m; 
-    Technician t; 
+    Manager m;
+    Technician t;
 
-    cout << "ENTER MANAGER DETAILS" << endl; 
+    cout << "ENTER MANAGER DETAILS" << endl;
     m.getManager();
 
-    cout << "\nENTER TECHNICIAN DETAILS" << endl; 
+    cout << "\nENTER TECHNICIAN DETAILS" << endl;
     t.getTechnician();
 
-    m.displayManager(); 
-    t.displayTechnician(); 
+    m.displayManager();
+    t.displayTechnician();
 
-    return 0;  
+    return 0;
 }
