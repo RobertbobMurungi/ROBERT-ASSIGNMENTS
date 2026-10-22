@@ -1,113 +1,66 @@
 #include <iostream>
-#include <string>
 using namespace std;
 
 // Base class
-class Employee
-{
-protected:
-    string name;
-    int id;
-    double salary;
-
+class Shape {
 public:
-    void getEmployee()
-    {
-        cout << "Enter employee name: ";
-        cin >> name;
+    virtual void area() {
 
-        cout << "Enter employee ID: ";
-        cin >> id;
-
-        cout << "Enter basic salary: ";
-        cin >> salary;
-    }
-
-    void showEmployee()
-    {
-        cout << "Name: " << name << endl;
-        cout << "Employee ID: " << id << endl;
-        cout << "Basic Salary: " << salary << endl;
+        cout << "Area of shape" << endl;
     }
 };
 
 // Derived class
-class Manager : public Employee
+class Circle : public Shape
 {
-private:
-    double allowance;
-
 public:
-    void getManager()
+    void area()
     {
-        getEmployee();
+        double radius;
 
-        cout << "Enter manager allowance: ";
-        cin >> allowance;
-    }
+        cout << "Enter radius: ";
+        cin >> radius;
 
-    void displayManager()
-    {
-        cout << "\nMANAGER DETAILS" << endl;
-
-        showEmployee();
-
-        cout << "Allowance: " << allowance << endl;
-        cout << "Gross Salary: "
-             << salary + allowance << endl;
+        cout << "Area of circle = "
+             << 3.142 * radius * radius
+             << endl;
     }
 };
-
-// Another derived class
-class Technician : public Employee
+// Derived class
+class Rectangle : public Shape
 {
-private:
-    int overtimeHours;
-    double overtimeRate;
-
 public:
-    void getTechnician()
+    void area()
     {
-        getEmployee();
+        double length;
+        double width;
 
-        cout << "Enter overtime hours: ";
-        cin >> overtimeHours;
+        cout << "Enter length: ";
+        cin >> length;
 
-        cout << "Enter overtime rate: ";
-        cin >> overtimeRate;
-    }
+        cout << "Enter width: ";
+        cin >> width;
 
-    void displayTechnician()
-    {
-        cout << "\nTECHNICIAN DETAILS" << endl;
-
-        showEmployee();
-
-        double overtimePay;
-
-        overtimePay = overtimeHours * overtimeRate;
-
-        cout << "Overtime Pay: "
-             << overtimePay << endl;
-
-        cout << "Gross Salary: "
-             << salary + overtimePay << endl;
+        cout << "Area of rectangle = "
+             << length * width
+             << endl;
     }
 };
 
 int main()
 {
-    Manager m;
-    Technician t;
+    Shape *ptr;
 
-    cout << "ENTER MANAGER DETAILS" << endl;
-    m.getManager();
+    Circle c;
+    Rectangle r;
 
-    cout << "\nENTER TECHNICIAN DETAILS" << endl;
-    t.getTechnician();
+    ptr = &c;
+    ptr->area();
 
-    m.displayManager();
-    t.displayTechnician();
+    cout << endl;
+
+    ptr = &r;
+    ptr->area();
 
     return 0;
 }
